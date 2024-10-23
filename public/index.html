@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative; /* Added to position canvas correctly */
+        }
+        canvas {
+            position: absolute;
+            top: 0; /* Align canvas to the top */
+            left: 0; /* Align canvas to the left */
+            pointer-events: none; /* Allow clicks to pass through the canvas */
+        }
+        input[type="file"] {
+            z-index: 2; /* Ensure file input is above other elements */
+            position: relative; /* Position relative to allow z-index to work */
+            cursor: pointer; /* Change cursor to pointer for better UX */
+            margin-bottom: 10px; /* Add some space below the file input */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="file" id="imageUpload" accept=".jpg, .jpeg, .png" />
+        <video id="video-feed" width="720" height="560" autoplay muted></video>
+        <canvas id="overlay" width="720" height="560"></canvas> <!-- Set canvas size to match video -->
+    </div>
+    <script src="./face-api.min.js"></script>
+    <script src="./scripts3.js"></script>
+</body>
+</html>
